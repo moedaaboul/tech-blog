@@ -1,7 +1,3 @@
-const router = require('express').Router();
-
-router.use('/', (req, res) => {
-  res.render('blogs', { title: 'blogs' });
-});
+const router = require('./homeRoutes');
 
 module.exports = router;
