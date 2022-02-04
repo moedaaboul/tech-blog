@@ -1,6 +1,8 @@
-<h1>{{title}}</h1>
+{{> navbar}}
 
+<ul>
 {{#each blogsData}}
+<li class="card mb-5">
   <article class='modal-content has-background-white py-5 px-5'>
     <h3 class='title mb-2'>{{this.blog_title}}</h3>
     <div class='location-container is-flex is-align-items-center mb-2'>
@@ -13,4 +15,6 @@
     </div>
     <p class='job-description mb-2'>{{this.blog_body}}</p>
   </article>
+  </li>
 {{/each}}
+</ul>
