@@ -10,14 +10,14 @@ const handleLogin = async (event) => {
   console.log(email, password);
   if (email && password) {
     try {
-      const data = await makeRequest('/api/travellers/login', 'POST', {
+      const data = await makeRequest('/api/users/login', 'POST', {
         email,
         password,
       });
       // json respon from login POST route
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace('/api/travellers');
+        window.location.replace('/register');
       } else {
         console.log('Failed to login');
       }
