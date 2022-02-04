@@ -19,14 +19,14 @@ const handleRegister = async (event) => {
     password === confirmPassword
   ) {
     try {
-      const data = await makeRequest('/api/users/register', 'POST', {
+      const data = await makeRequest('api/users/register', 'POST', {
         name,
         email,
         password,
       });
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace('/dashboard');
+        window.location.replace('/');
         registerForm.removeEventListener('submit', handleRegister);
       } else {
         console.log('Failed to login');

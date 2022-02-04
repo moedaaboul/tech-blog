@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Blog, Comment } = require('../models');
+
 router.use('/register', (req, res) => {
   res.render('register', { title: 'register' });
 });
