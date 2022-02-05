@@ -26,7 +26,7 @@ const handleRegister = async (event) => {
       });
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace('/');
+        window.location.replace('/login');
         registerForm.removeEventListener('submit', handleRegister);
       } else {
         console.log('Failed to login');
