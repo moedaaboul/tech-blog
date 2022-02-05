@@ -5,22 +5,31 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const session = require('express-session');
 const helpers = require('./utils/helpers');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
+const ONE_SECOND = 1000;
+const ONE_MINUTE = 1000 * 60;
+const ONE_HOUR = 1000 * 60 * 60;
+
 const sessionOptions = {
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookies: {
-    maxAge: 3600 * 1000,
+    // stored in milliseconds (86400 === 1 day)
+    maxAge: ONE_MINUTE * 5,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
   },
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 // Handlebars
