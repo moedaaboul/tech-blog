@@ -24,18 +24,28 @@
           </span>
           <span> Home</span>
         </a>
-        <a class='navbar-item' href='/login' target=''>
-          <span class='icon'>
-            <i class='fas fa-sign-in-alt'></i>
-          </span>
-          <span> Login</span>
-        </a>
-        <a class='navbar-item' href='/register' target=''>
-          <span class='icon'>
-            <i class='fas fa-user-plus'></i>
-          </span>
-          <span> Sign-up</span>
-        </a>
+        {{#if title}}
+          <a class='navbar-item' href='/login' target=''>
+            <span class='icon'>
+              <i class='fas fa-sign-in-alt'></i>
+            </span>
+            <span> Login</span>
+          </a>
+          <a class='navbar-item' href='/register' target=''>
+            <span class='icon'>
+              <i class='fas fa-user-plus'></i>
+            </span>
+            <span> Sign-up</span>
+          </a>
+        {{/if}}
+        {{#if dashboard}}
+          <a class='navbar-item' href='/register' target=''>
+            <span class='icon'>
+              <i class='fas fa-user-plus'></i>
+            </span>
+            <span> Log-out</span>
+          </a>
+        {{/if}}
       </section>
     </section>
   </div>
