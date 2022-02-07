@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
     const dbBlogsData = await Blog.findByPk(req.params.id);
     const blogsData = dbBlogsData.get({ plain: true });
     console.log(blogsData);
-    res.render('blogs', { title: 'Tech Blog', blogsData: [blogsData] });
+    res.render('singleBlog', { title: 'Tech Blog', blogsData: [blogsData] });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
