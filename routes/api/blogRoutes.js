@@ -37,8 +37,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const newBlog = await Blog.create(req.body);
-    res.json(newBlog);
+    const newBlog = await Blog.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.json({ newBlog, success: true });
   } catch (err) {
     res.sendStatus(500).send(err);
   }
