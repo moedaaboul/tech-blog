@@ -21,20 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one blog
-router.get('/:id', async (req, res) => {
-  try {
-    const blogsData = await Blog.findByPk(req.params.id);
-    if (!blogsData) {
-      res.status(404).json({ message: 'No blog with this id!' });
-      return;
-    }
-    res.status(200).json(blogsData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({
@@ -47,6 +33,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+// get one blog
+router.get('/:id', async (req, res) => {
+  try {
+    const dbBlogsData = await Blog.findByPk(req.params.id);
+    const blogsData = dbBlogsData.get({ plain: true });
+    console.log(blogsData);
+    res.render('blogs', { title: 'Tech Blog', blogsData: [blogsData] });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
 router.put('/:id', async (req, res) => {
   try {
     const updatedBlog = await Blog.update(req.body);
