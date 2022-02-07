@@ -9,6 +9,10 @@ router.use('/login', (req, res) => {
   res.render('login', { title: 'login' });
 });
 
+router.use('/post', (req, res) => {
+  res.render('createPost', { title: 'Tech Blog' });
+});
+
 router.use('/:id', async (req, res) => {
   if (req.session.logged_in) {
     try {
