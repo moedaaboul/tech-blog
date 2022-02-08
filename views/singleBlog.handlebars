@@ -1,8 +1,10 @@
 {{> navbar}}
-
+<div class="container">
 {{#each blogsData}}
 {{> blogCard}}
 {{/each}}
-
+<a href="" class="button is-success">Edit</a>
+<a href="" class="button is-success">Delete</a>
 {{> comment}}
+</div>
     <script type="module" src='/js/createComment.js'></script>

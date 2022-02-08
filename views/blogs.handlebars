@@ -1,8 +1,11 @@
 {{> navbar}}
-
+<div class="container">
+<h1>Welcome to your blog!</h1>
+<a href="/post" class="button is-success">New Article</a>
 <ul>
 {{#each blogsData}}
 {{> blogCard}}
 {{/each}}
-</ul>
+</ul>   
+</div>
     <script type="module" src='/js/logout.js'></script>
