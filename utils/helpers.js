@@ -6,7 +6,7 @@ module.exports = {
       month: 'long',
       day: 'numeric',
       year: 'numeric',
-    }).format(date);
+    }).format(new Date(date));
     // return date.toLocaleTimeString();
   },
 };
