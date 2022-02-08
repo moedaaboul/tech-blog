@@ -54,14 +54,14 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
-  const blogsData = await Blog.destroy({
+  // delete one blog by its `id` value
+  await Blog.destroy({
     where: {
       id: req.params.id,
     },
   });
 
-  return res.json(blogsData);
+  return res.json({ success: true });
 });
 
 module.exports = router;
