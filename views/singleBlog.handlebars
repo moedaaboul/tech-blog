@@ -6,5 +6,8 @@
 <a href="" class="button is-success">Edit</a>
 <button class="delete-btn button is-success">Delete</button>
 {{> comment}}
+{{#each comments}}
+{{> commentCard}}
+{{/each}}
 </div>
     <script type="module" src='/js/createComment.js'></script>

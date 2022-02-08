@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Comment } = require('../../models');
 
 // get all blogs
 router.get('/', async (req, res) => {
@@ -36,10 +36,20 @@ router.post('/', async (req, res) => {
 // get one blog
 router.get('/:id', async (req, res) => {
   try {
-    const dbBlogsData = await Blog.findByPk(req.params.id);
+    const dbBlogsData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+        },
+      ],
+    });
     const blogsData = dbBlogsData.get({ plain: true });
     console.log(blogsData);
-    res.render('singleBlog', { title: 'Tech Blog', blogsData: [blogsData] });
+    res.render('singleBlog', {
+      title: 'Tech Blog',
+      blogsData: [blogsData],
+      comments: blogsData.comments,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }

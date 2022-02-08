@@ -5,7 +5,7 @@ const deleteBlogBtn = document.querySelector('.delete-btn');
 
 const handleCreateComment = async () => {
   const comment = document.querySelector('#comment').value;
-  const titleID = document.querySelector('.title');
+  const titleID = document.querySelector('.title').id;
   console.log(createCommentButton, titleID);
   if (comment && titleID) {
     try {
