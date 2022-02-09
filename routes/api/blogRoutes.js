@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
 
     console.log(blogsData);
     res.render('blogs', {
-      title: 'Tech Blog',
       blogsData: blogsData,
+      dashboard: true,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
