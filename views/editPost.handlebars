@@ -1,0 +1,37 @@
+{{> navbar}}
+<div class="container">
+<form>
+  <div class='field'>
+    <div class='field'>
+      <label class='label'>Title</label>
+      <div class='control'>
+        <input
+          class='input is-large'
+          id = "title"
+          type='text'
+          value='{{blogsData.blog_title}}'
+          placeholder='e.g. How much JavaScript should you know ?'
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class='field'>
+    <label class='label' for='content'>Content</label>
+    <div class='control'>
+      <textarea
+        class='textarea is-large'
+        name='message'
+        id='content'
+      >{{blogsData.blog_body}}</textarea>
+    </div>
+  </div>
+  <div class='field'>
+    <div class='buttons'>
+      <button id="create-blog", class='button is-medium is-success'>Save</button>
+      <a class='button is-medium is-light'>Cancel</a>
+    </div>
+  </div>
+</form>
+</div>
+    <script type="module" src='/js/createBlog.js'></script>

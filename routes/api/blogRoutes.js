@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const { Blog, Comment } = require('../../models');
 
+router.get('/edit/:id', async (req, res) => {
+  const dbBlogsData = await Blog.findByPk(req.params.id);
+  const blogsData = dbBlogsData.get({ plain: true });
+  console.log(blogsData);
+  console.log([blogsData][0]);
+  res.render('editPost', {
+    title: 'Tech Blog',
+    blogsData: blogsData,
+  });
+});
+
 // get all blogs
 router.get('/', async (req, res) => {
   try {
