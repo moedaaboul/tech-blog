@@ -16,6 +16,10 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    blog_description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     blog_body: {
       type: DataTypes.TEXT,
       allowNull: false,

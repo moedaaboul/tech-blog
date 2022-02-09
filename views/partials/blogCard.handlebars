@@ -2,15 +2,9 @@
   <article class='modal-content py-5 px-5'>
     <a href='/api/blogs/{{id}}'>
       <h3 class='title mb-2' id='{{id}}'>{{blog_title}}</h3></a>
-    <div class='location-container is-flex is-align-items-center mb-2'>
-      <i class='fas fa-map-marker-alt'></i>
-      <p class='ml-2'>{{user_id}}</p>
-    </div>
-    <div class='expiration-container is-flex is-align-items-center mb-2'>
-      <i class='fas fa-calendar-day'></i>
-      <p class='ml-2'>Created Date: {{format_time createdAt}}</p>
-    </div>
-    <p class='job-description mb-2'>{{{format_markdown blog_body}}}</p>
+    <p class='mb-2 work-sans'>{{blog_description}}</p>
+    <p class='is-sub-article'>By: {{user_id}}</p>
+    <p class='is-sub-article'>{{format_time createdAt}}</p>
   </article>
 </li>
 <hr />

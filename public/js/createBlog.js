@@ -7,11 +7,13 @@ const handleCreateBlog = async (event) => {
 
   const title = document.querySelector('#title').value;
   const content = document.querySelector('#content').value;
-  if (title && content) {
+  const description = document.querySelector('#description').value;
+  if (title && content && description) {
     try {
       const data = await makeRequest('/api/blogs', 'POST', {
         blog_title: title,
         blog_body: content,
+        blog_description: description,
       });
       // json respon from login POST route
       console.log(data, 'data');
