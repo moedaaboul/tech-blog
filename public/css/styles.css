@@ -76,3 +76,7 @@ hr {
   font-family: 'Work Sans', sans-serif;
   color: #303546;
 }
+
+.center-column {
+  flex-direction: column;
+}

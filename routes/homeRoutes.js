@@ -29,12 +29,23 @@ router.use('/:id', async (req, res) => {
 
 router.use('/', async (req, res) => {
   try {
-    const blogsData = await Blog.findAll({
-      raw: true,
-      //Other parameters
+    const dbblogsData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: {
+            exclude: ['password', 'email'],
+          },
+        },
+      ],
     });
+    console.log(dbblogsData);
+    const blogsData = dbblogsData.map((el) => el.get({ plain: true }));
     console.log(blogsData);
-    res.render('blogs', { title: 'Tech Blog', blogsData: blogsData });
+    res.render('blogs', {
+      title: 'Tech Blog',
+      blogsData: blogsData,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }

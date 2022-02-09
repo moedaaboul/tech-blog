@@ -3,8 +3,10 @@
     <a href='/api/blogs/{{id}}'>
       <h3 class='title mb-2' id='{{id}}'>{{blog_title}}</h3></a>
     <p class='mb-2 work-sans'>{{blog_description}}</p>
-    <p class='is-sub-article'>By: {{user_id}}</p>
-    <p class='is-sub-article'>{{format_time createdAt}}</p>
+    <section class='is-flex center-column'>
+      <small class='is-sub-article'>By: {{user.name}}</small>
+      <small class='is-sub-article'>{{format_time createdAt}}</small>
+    </section>
   </article>
 </li>
 <hr />

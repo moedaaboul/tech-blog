@@ -16,10 +16,16 @@ router.get('/edit/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const dbblogsData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+        },
+      ],
       where: {
         user_id: req.session.user_id,
       },
     });
+    console.log(dbblogsData);
     const blogsData = dbblogsData.map((el) => el.get({ plain: true }));
     console.log(blogsData);
     res.render('blogs', {
