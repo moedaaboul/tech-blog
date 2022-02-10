@@ -83,3 +83,40 @@ hr {
 .center-column {
   flex-direction: column;
 }
+
+/*
+Below cool navbar animation credited to Kyle from Web Dev Simplified
+https://codepen.io/WebDevSimplified/pen/jOEorZN
+*/
+
+.btn {
+  background-color: var(--background-color);
+  color: #222;
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+
+  --background-color: #fff8f5;
+  --border-size: 2px;
+  --accent-color: #0af;
+}
+
+.btn.btn-border-underline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--border-size);
+  background-color: var(--accent-color);
+  transition: transform 300ms ease-in-out;
+
+  transform: scaleX(0);
+}
+
+.btn.btn-border-underline:hover::before,
+.btn.btn-border-underline:focus::before {
+  transform: scaleX(1);
+}

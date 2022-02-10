@@ -18,20 +18,28 @@
       class='navbar-menu menu-container overflow-hidden is-flex-desktop is-align-content-center'
     >
       <section class='navbar-end menu'>
-        <a class='navbar-item' href='/'>
+        <a class='navbar-item btn btn-border-underline' href='/'>
           <span class='icon'>
             <i class='fa fa-home'></i>
           </span>
           <span> Home</span>
         </a>
         {{#if title}}
-          <a class='navbar-item' href='/login' target=''>
+          <a
+            class='navbar-item btn btn-border-underline'
+            href='/login'
+            target=''
+          >
             <span class='icon'>
               <i class='fas fa-sign-in-alt'></i>
             </span>
             <span> Login</span>
           </a>
-          <a class='navbar-item' href='/register' target=''>
+          <a
+            class='navbar-item btn btn-border-underline'
+            href='/register'
+            target=''
+          >
             <span class='icon'>
               <i class='fas fa-user-plus'></i>
             </span>
@@ -39,7 +47,12 @@
           </a>
         {{/if}}
         {{#if dashboard}}
-          <a class='navbar-item' id='log-out' href='/register' target=''>
+          <a
+            class='navbar-item btn btn-border-underline'
+            id='log-out'
+            href='/register'
+            target=''
+          >
             <span class='icon'>
               <i class='fas fa-user-plus'></i>
             </span>
