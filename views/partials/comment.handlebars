@@ -1,23 +1,36 @@
 <form>
   <div class='field'>
     <div class='field'>
-      <label class='label'>Add Comment</label>
+      <label class='label'>Comments</label>
       <div class='control'>
-        <input
-          class='input is-large'
+        <textarea
+          class='textarea'
           id='comment'
           type='text'
           value=''
-          placeholder='e.g. Great post, love it !'
+           {{#if loggedIn}}
+                  placeholder='e.g. Great article !'
+                  {{/if}}
           required
-        />
+        {{#if loggedOut}}
+        placeholder='Sign in to comment'
+          disabled
+        {{/if}}
+        /></textarea>
+        <footer class="">
+          <a class="" target="_blank" href="https://guides.github.com/features/mastering-markdown/">
+            Styling with Markdown is supported
+          </a>
+        </footer>
       </div>
     </div>
   </div>
+                  {{#if loggedIn}}
   <div class='field'>
     <div class='buttons'>
       <button id='create-comment' , class='button is-medium is-success'>Add
         Comment</button>
     </div>
   </div>
+    {{/if}}
 </form>

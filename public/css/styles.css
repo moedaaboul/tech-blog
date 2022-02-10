@@ -120,3 +120,19 @@ https://codepen.io/WebDevSimplified/pen/jOEorZN
 .btn.btn-border-underline:focus::before {
   transform: scaleX(1);
 }
+
+.message-header {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  color: #586069;
+  font-weight: 400;
+}
+
+.message-body {
+  background-color: #fff;
+  color: #24292e;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 14px;
+  line-height: 1.5;
+}

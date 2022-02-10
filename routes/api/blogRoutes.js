@@ -86,6 +86,8 @@ router.get('/:id', async (req, res) => {
       blogsData: [blogsData],
       comments: blogsData.comments,
       permission,
+      loggedOut: !req.session.logged_in,
+      loggedIn: req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
