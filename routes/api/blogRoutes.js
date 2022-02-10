@@ -30,7 +30,9 @@ router.get('/', async (req, res) => {
     console.log(blogsData);
     res.render('blogs', {
       blogsData: blogsData,
-      dashboard: true,
+      // dashboard: true,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -87,7 +89,7 @@ router.get('/:id', async (req, res) => {
       comments: blogsData.comments,
       permission,
       loggedOut: !req.session.logged_in,
-      loggedIn: req.session.logged_in,
+      signedIn: req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json({ msg: error });

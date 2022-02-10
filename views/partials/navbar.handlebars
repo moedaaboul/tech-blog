@@ -24,7 +24,7 @@
           </span>
           <span> Home</span>
         </a>
-        {{#if title}}
+        {{#if loggedOut}}
           <a
             class='navbar-item btn btn-border-underline'
             href='/login'
@@ -46,7 +46,17 @@
             <span> Sign-up</span>
           </a>
         {{/if}}
-        {{#if dashboard}}
+        {{#if signedIn}}
+          <a
+            class='navbar-item btn btn-border-underline'
+            href='/api/blogs'
+            target=''
+          >
+            <span class='icon'>
+              <i class='fa fa-book'></i>
+            </span>
+            <span> Dashboard</span>
+          </a>
           <a
             class='navbar-item btn btn-border-underline'
             id='log-out'

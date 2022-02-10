@@ -45,6 +45,8 @@ router.use('/', async (req, res) => {
     res.render('blogs', {
       title: 'Tech Blog',
       blogsData: blogsData,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
