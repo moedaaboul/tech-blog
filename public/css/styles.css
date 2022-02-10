@@ -10,8 +10,11 @@
   --decorator-border: 4px solid #f3e0e1;
 }
 
-body {
-  background-color: #fff8f5;
+body,
+.navbar-menu,
+.navbar-brand,
+nav {
+  background-color: #fff8f5 !important;
 }
 
 .link a {
