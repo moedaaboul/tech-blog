@@ -65,11 +65,16 @@ router.get('/:id', async (req, res) => {
       ],
     });
     const blogsData = dbBlogsData.get({ plain: true });
+    console.log(blogsData.user.name);
+    console.log(req.session.user_id);
+    const permission = blogsData.user.id === req.session.user_id ? true : false;
     console.log(blogsData);
+    console.log(permission);
     res.render('singleBlog', {
       title: 'Tech Blog',
       blogsData: [blogsData],
       comments: blogsData.comments,
+      permission,
     });
   } catch (error) {
     res.status(500).json({ msg: error });

@@ -3,8 +3,10 @@
 {{#each blogsData}}
 {{> article}}
 {{/each}}
+        {{#if permission}}
 <a href="/api/blogs/edit/{{blogsData.[0].id}}" class="button is-success">Edit</a>
 <button class="delete-btn button is-success">Delete</button>
+        {{/if}}
 {{> comment}}
 {{#each comments}}
 {{> commentCard}}
