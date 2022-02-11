@@ -164,3 +164,13 @@ https://codepen.io/WebDevSimplified/pen/jOEorZN
 .bold {
   font-weight: bold;
 }
+
+.dropdown-content {
+  width: 150px;
+}
+
+@media screen and (max-width: 1160px) {
+  .dropdown-menu {
+    left: -111px;
+  }
+}
