@@ -1,6 +1,12 @@
 <div class='message'>
   <div class='message-header'>
-    <span class='strong'>{{user.name}}</span>
+    <span class='strong'>
+      <figure class='bd-tw-avatar'>
+        <img
+          class='lazyload'
+          src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        />
+      </figure><div class='ml-2 bold'>{{user.name}}</div></span>
     commented on
     {{format_time createdAt}}
   </div>
