@@ -14,4 +14,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  // delete one comment by its `id` value
+  await Comment.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+
+  return res.json({ success: true });
+});
+
 module.exports = router;
