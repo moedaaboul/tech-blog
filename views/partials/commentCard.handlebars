@@ -23,7 +23,7 @@
       </div>
       <div class='dropdown-menu' id='dropdown-menu-post' role='menu'>
         <div class='dropdown-content'>
-          <a href='#' class='dropdown-item'>
+          <a class='dropdown-item update-comment' id='{{id}}'>
             Update
           </a>
           <a class='dropdown-item delete-comment' id='{{id}}'>
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <div class='message-body'>
+  <textarea class='message-body textarea' data-id='{{id}}' disabled>
     {{comment_text}}
-  </div>
+  </textarea>
 </div>

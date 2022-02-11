@@ -4,7 +4,7 @@ const createCommentButton = document.querySelector('#create-comment');
 const deleteBlogBtn = document.querySelector('.delete-btn');
 const deleteCommentBtn = document.querySelectorAll('.delete-comment');
 var elements = document.querySelectorAll('.delete-comment');
-
+var updateElements = document.querySelectorAll('.update-comment');
 const handleCreateComment = async () => {
   const comment = document.querySelector('#comment').value;
   const titleID = document.querySelector('.title').id;
@@ -68,6 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         console.log('Failed to login');
       }
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // querySelector - it returns the element within the document that matches the specified selector
+  const titleID = document.querySelector('.title').id;
+  Array.from(updateElements).forEach(function (element) {
+    element.addEventListener('click', function (event) {
+      //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+      event.stopPropagation();
+      const commentID = element.id;
+      console.log(commentID);
+      console.log(commentID, 'commentID');
+      const messageBox = document.querySelector(`[data-id="${commentID}"]`);
+      console.log(messageBox, 'messageBox');
+      messageBox.toggleAttribute('disabled');
     });
   });
 });

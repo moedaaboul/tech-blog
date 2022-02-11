@@ -174,3 +174,9 @@ https://codepen.io/WebDevSimplified/pen/jOEorZN
     left: -111px;
   }
 }
+
+.message-body:disabled {
+  background-color: #fff !important;
+  color: black;
+  cursor: auto;
+}
