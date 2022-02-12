@@ -48,6 +48,7 @@ router.use('/', async (req, res) => {
       blogsData: blogsData,
       signedIn: req.session.logged_in,
       loggedOut: !req.session.logged_in,
+      user: req.session.user_name,
     });
   } catch (error) {
     res.status(500).json({ msg: error });
