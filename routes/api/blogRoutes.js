@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      order: [['updatedAt', 'DESC']],
     });
     const dirtyBlogsData = dbblogsData.map((el) => el.get({ plain: true }));
     var blogsData = dirtyBlogsData.map(function (el) {
@@ -76,6 +77,7 @@ router.get('/:id', async (req, res) => {
           },
         },
       ],
+      order: [[{ model: Comment }, 'updatedAt', 'DESC']],
     });
     const blogsData = dbBlogsData.get({ plain: true });
     console.log(blogsData.user.name);

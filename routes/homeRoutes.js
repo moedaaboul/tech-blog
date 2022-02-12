@@ -38,6 +38,7 @@ router.use('/', async (req, res) => {
           },
         },
       ],
+      order: [['updatedAt', 'DESC']],
     });
     console.log(dbblogsData);
     const blogsData = dbblogsData.map((el) => el.get({ plain: true }));
