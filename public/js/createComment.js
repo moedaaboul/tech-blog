@@ -83,8 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(commentID);
       console.log(commentID, 'commentID');
       const messageBox = document.querySelector(`[data-id="${commentID}"]`);
+      const saveBtn = document.querySelector(`[save-btn-id="${commentID}"]`);
       console.log(messageBox, 'messageBox');
       messageBox.toggleAttribute('disabled');
+      saveBtn.classList.toggle('hidden');
     });
   });
 });

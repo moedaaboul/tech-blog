@@ -180,3 +180,7 @@ https://codepen.io/WebDevSimplified/pen/jOEorZN
   color: black;
   cursor: auto;
 }
+
+.hidden {
+  display: none;
+}
