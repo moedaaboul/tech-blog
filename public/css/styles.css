@@ -13,7 +13,8 @@
 body,
 .navbar-menu,
 .navbar-brand,
-nav {
+nav,
+footer {
   background-color: #fff8f5 !important;
 }
 
