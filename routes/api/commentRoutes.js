@@ -25,4 +25,19 @@ router.delete('/:id', async (req, res) => {
   return res.json({ success: true });
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    console.log(req.body);
+    await Comment.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({ success: true });
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500).send(err);
+  }
+});
+
 module.exports = router;
