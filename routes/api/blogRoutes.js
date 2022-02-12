@@ -14,6 +14,9 @@ router.get('/edit/:id', async (req, res) => {
 
 // get all blogs
 router.get('/', async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect('/login');
+  }
   try {
     const dbblogsData = await Blog.findAll({
       where: {

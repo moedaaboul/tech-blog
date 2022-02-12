@@ -24,17 +24,17 @@
           </span>
           <span> Home</span>
         </a>
+        <a
+          class='navbar-item btn btn-border-underline'
+          href='/api/blogs'
+          target=''
+        >
+          <span class='icon'>
+            <i class='fa fa-book'></i>
+          </span>
+          <span> Dashboard</span>
+        </a>
         {{#if loggedOut}}
-          <a
-            class='navbar-item btn btn-border-underline'
-            href='/login'
-            target=''
-          >
-            <span class='icon'>
-              <i class='fas fa-sign-in-alt'></i>
-            </span>
-            <span> Login</span>
-          </a>
           <a
             class='navbar-item btn btn-border-underline'
             href='/register'
@@ -45,18 +45,19 @@
             </span>
             <span> Sign-up</span>
           </a>
-        {{/if}}
-        {{#if signedIn}}
           <a
             class='navbar-item btn btn-border-underline'
-            href='/api/blogs'
+            href='/login'
             target=''
           >
             <span class='icon'>
-              <i class='fa fa-book'></i>
+              <i class='fas fa-sign-in-alt'></i>
             </span>
-            <span> Dashboard</span>
+            <span> Login</span>
           </a>
+        {{/if}}
+
+        {{#if signedIn}}
           <a
             class='navbar-item btn btn-border-underline'
             id='log-out'
