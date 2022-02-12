@@ -9,7 +9,7 @@
           type='text'
           value=''
            {{#if signedIn}}
-                  placeholder='e.g. Great article !'
+                  placeholder='Leave a comment'
                   {{/if}}
           required
         {{#if loggedOut}}
@@ -17,20 +17,21 @@
           disabled
         {{/if}}
         /></textarea>
-        <footer class="">
-          <a class="" target="_blank" href="https://guides.github.com/features/mastering-markdown/">
+        <footer class="is-flex is-justify-content-space-between">
+             {{#if signedIn}}
+  <div class='field'>
+    <div class='buttons'>
+      <button id='create-comment' , class='button is-small is-success'>Add
+        Comment</button>
+    </div>
+  </div>
+      {{/if}}
+                    <a class="" target="_blank" href="https://guides.github.com/features/mastering-markdown/">
             Styling with Markdown is supported
           </a>
+
         </footer>
       </div>
     </div>
   </div>
-                  {{#if signedIn}}
-  <div class='field'>
-    <div class='buttons'>
-      <button id='create-comment' , class='button is-medium is-success'>Add
-        Comment</button>
-    </div>
-  </div>
-    {{/if}}
 </form>
