@@ -12,38 +12,6 @@ router.get('/edit/:id', async (req, res) => {
   });
 });
 
-// get all blogs
-router.get('/', async (req, res) => {
-  if (!req.session.logged_in) {
-    return res.redirect('/login');
-  }
-  try {
-    const dbblogsData = await Blog.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      order: [['updatedAt', 'DESC']],
-    });
-    const dirtyBlogsData = dbblogsData.map((el) => el.get({ plain: true }));
-    var blogsData = dirtyBlogsData.map(function (el) {
-      var o = Object.assign({}, el);
-      o.user = { name: req.session.user_name };
-      return o;
-    });
-
-    console.log(blogsData);
-    res.render('blogs', {
-      blogsData: blogsData,
-      // dashboard: true,
-      signedIn: req.session.logged_in,
-      loggedOut: !req.session.logged_in,
-      user: req.session.user_name,
-    });
-  } catch (error) {
-    res.status(500).json({ msg: error });
-  }
-});
-
 router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({
