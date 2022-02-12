@@ -129,6 +129,12 @@ https://codepen.io/WebDevSimplified/pen/jOEorZN
   font-weight: 400;
 }
 
+.post-options .button {
+  background-color: #f6f8fa;
+  border-color: #f6f8fa;
+  border-width: 1px;
+}
+
 .message-body {
   background-color: #fff;
   color: #24292e;
