@@ -87,7 +87,11 @@ router.get('/:id', async (req, res) => {
     console.log(blogsData.user.name);
     console.log(req.session.user_id);
     const permission = blogsData.user.id === req.session.user_id ? true : false;
-    blogsData.comments.map((e) => (e.signedIn = req.session.logged_in));
+    blogsData.comments.map(
+      (e) =>
+        (e.signedIn =
+          req.session.logged_in && e.user_id === req.session.user_id)
+    );
     console.log(blogsData);
     console.log(permission);
     res.render('singleBlog', {
