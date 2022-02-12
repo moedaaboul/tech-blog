@@ -83,9 +83,11 @@ router.get('/:id', async (req, res) => {
       order: [[{ model: Comment }, 'updatedAt', 'DESC']],
     });
     const blogsData = dbBlogsData.get({ plain: true });
+    console.log(blogsData);
     console.log(blogsData.user.name);
     console.log(req.session.user_id);
     const permission = blogsData.user.id === req.session.user_id ? true : false;
+    blogsData.comments.map((e) => (e.signedIn = req.session.logged_in));
     console.log(blogsData);
     console.log(permission);
     res.render('singleBlog', {

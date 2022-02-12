@@ -9,29 +9,32 @@
       </figure><div class='ml-2 mr-5 bold'>{{user.name}} </div>
       <em>commented on
         {{format_time createdAt}}</em></span>
-    <div class='dropdown post-options'>
-      <div class='dropdown-trigger'>
-        <button
-          class='button'
-          aria-haspopup='true'
-          aria-controls='dropdown-menu-post'
-        >
-          <span class='icon is-small'>
-            <i class='fas fa-ellipsis-h' aria-hidden='true'></i>
-          </span>
-        </button>
-      </div>
-      <div class='dropdown-menu' id='dropdown-menu-post' role='menu'>
-        <div class='dropdown-content'>
-          <a class='dropdown-item update-comment' id='{{id}}'>
-            Update
-          </a>
-          <a class='dropdown-item delete-comment' id='{{id}}'>
-            Delete
-          </a>
+
+    {{#if signedIn}}
+      <div class='dropdown post-options'>
+        <div class='dropdown-trigger'>
+          <button
+            class='button'
+            aria-haspopup='true'
+            aria-controls='dropdown-menu-post'
+          >
+            <span class='icon is-small'>
+              <i class='fas fa-ellipsis-h' aria-hidden='true'></i>
+            </span>
+          </button>
+        </div>
+        <div class='dropdown-menu' id='dropdown-menu-post' role='menu'>
+          <div class='dropdown-content'>
+            <a class='dropdown-item update-comment' id='{{id}}'>
+              Update
+            </a>
+            <a class='dropdown-item delete-comment' id='{{id}}'>
+              Delete
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    {{/if}}
   </div>
   <textarea class='message-body textarea' data-id='{{id}}' disabled>
     {{comment_text}}
