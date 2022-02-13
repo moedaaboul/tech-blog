@@ -18,7 +18,7 @@ const handleCreateBlog = async (event) => {
       // json respon from login POST route
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace('/');
+        window.location.replace('/dashboard');
       } else {
         console.log('Failed to login');
       }

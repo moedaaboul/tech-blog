@@ -18,7 +18,7 @@ const handleEditBlog = async (event) => {
       // json respon from login POST route
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace('/');
+        window.location.replace(`/blogs/${blogID}`);
       } else {
         console.log('Failed to update content');
       }

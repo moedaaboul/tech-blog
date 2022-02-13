@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const data = await makeRequest(`/api/comments/${commentID}`, 'DELETE');
       console.log(data, 'data');
       if (data.success) {
-        window.location.replace(`/api/blogs/${titleID}`);
+        window.location.replace(`/blogs/${titleID}`);
       } else {
         console.log('Failed to login');
       }
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         console.log(data, 'data');
         if (data.success) {
-          window.location.replace(`/api/blogs/${titleID}`);
+          window.location.replace(`/blogs/${titleID}`);
         } else {
           console.log('Failed to login');
         }
