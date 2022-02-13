@@ -15,6 +15,7 @@ Task was to build a CMS-style blog site similar to a Wordpress site, where devel
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
 - [Deployment](#deployment)
+- [Appearance](#appearance)
 - [Acknowledgements](#acknowledgements)
 - [Questions](#questions)
 - [License](#license)
@@ -109,6 +110,10 @@ If deployment fails, try debugging using the following command using the heroku 
     heroku logs --tail
 
 Then in the upper right corner of your heroku UI, click on more actions then select the option to restart all dynos. This will capture the logs as the app starts up it should allow you to get the entire stack trace
+
+## Appearance
+
+![My dashboard view of Tech Blog](./assets/dashboard.png)
 
 ## Acknowledgements
 
