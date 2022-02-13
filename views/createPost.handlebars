@@ -52,5 +52,7 @@
 </div>
 {{> footer}}
     <script type="module" src='/js/createBlog.js'></script>
-        <script type="module" src='/js/logout.js'></script>
+            {{#if signedIn}}
+    <script type="module" src='/js/logout.js'></script>
+     {{/if}}
                 <script type="module" src='/js/toggleNavbar.js'></script>

@@ -107,4 +107,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 createCommentButton.addEventListener('click', handleCreateComment);
-deleteBlogBtn.addEventListener('click', handleDeleteBlog);
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (deleteBlogBtn) {
+    deleteBlogBtn.addEventListener('click', handleDeleteBlog);
+  }
+});

@@ -2,10 +2,16 @@ const router = require('express').Router();
 const { User, Blog, Comment } = require('../models');
 
 router.use('/register', (req, res) => {
+  if (req.session.logged_in) {
+    return res.redirect('/');
+  }
   res.render('register', { title: 'register' });
 });
 
 router.use('/login', (req, res) => {
+  if (req.session.logged_in) {
+    return res.redirect('/');
+  }
   res.render('login', { title: 'login' });
 });
 
@@ -53,6 +59,8 @@ router.use('/blogs/edit/:id', async (req, res) => {
   res.render('editPost', {
     title: 'Tech Blog',
     blogsData: blogsData,
+    signedIn: req.session.logged_in,
+    loggedOut: !req.session.logged_in,
   });
 });
 
