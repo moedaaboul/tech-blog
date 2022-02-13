@@ -41,10 +41,8 @@ router.use('/dashboard', async (req, res) => {
       return o;
     });
 
-    console.log(blogsData);
     res.render('blogs', {
       blogsData: blogsData,
-      // dashboard: true,
       signedIn: req.session.logged_in,
       loggedOut: !req.session.logged_in,
       user: req.session.user_name,
@@ -60,8 +58,6 @@ router.use('/blogs/edit/:id', async (req, res) => {
   }
   const dbBlogsData = await Blog.findByPk(req.params.id);
   const blogsData = dbBlogsData.get({ plain: true });
-  console.log(blogsData);
-  console.log([blogsData][0]);
   res.render('editPost', {
     title: 'Tech Blog',
     blogsData: blogsData,
@@ -98,17 +94,12 @@ router.use('/blogs/:id', async (req, res) => {
       order: [[{ model: Comment }, 'updatedAt', 'DESC']],
     });
     const blogsData = dbBlogsData.get({ plain: true });
-    console.log(blogsData);
-    console.log(blogsData.user.name);
-    console.log(req.session.user_id);
     const permission = blogsData.user.id === req.session.user_id ? true : false;
     blogsData.comments.map(
       (e) =>
         (e.signedIn =
           req.session.logged_in && e.user_id === req.session.user_id)
     );
-    console.log(blogsData);
-    console.log(permission);
     res.render('singleBlog', {
       title: 'Tech Blog',
       blogsData: [blogsData],
@@ -135,9 +126,7 @@ router.use('/', async (req, res) => {
       ],
       order: [['updatedAt', 'DESC']],
     });
-    console.log(dbblogsData);
     const blogsData = dbblogsData.map((el) => el.get({ plain: true }));
-    console.log(blogsData);
     res.render('blogs', {
       title: 'Tech Blog',
       blogsData: blogsData,

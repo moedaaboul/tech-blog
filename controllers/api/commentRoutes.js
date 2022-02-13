@@ -7,7 +7,6 @@ router.post('/', async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log(newComment);
     res.json({ newComment, success: true });
   } catch (err) {
     res.sendStatus(500).send(err);
@@ -27,7 +26,6 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    console.log(req.body);
     await Comment.update(req.body, {
       where: {
         id: req.params.id,

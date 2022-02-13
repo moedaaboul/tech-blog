@@ -6,13 +6,10 @@ const bcrypt = require('bcrypt');
 router.post('/register', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    console.log(userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       req.session.user_name = userData.name;
-      console.log(req.session.user_id);
-      console.log(req.session.logged_in);
       res.json({ success: true });
     });
   } catch (err) {
@@ -26,7 +23,6 @@ router.post('/login', async (req, res) => {
       raw: true,
       where: { name: req.body.name },
     });
-    console.log(userData);
     if (!userData) {
       res.status(404).json({ message: 'Login failed. Please try again!' });
       return;
@@ -36,20 +32,15 @@ router.post('/login', async (req, res) => {
       req.body.password,
       userData.password
     );
-    console.log(validPassword, 'validPassword');
     if (!validPassword) {
       res.status(400).json({ message: 'Login failed. Please try again!' });
       return;
     }
-    console.log(userData.id, 'id');
-    console.log(userData.name, 'name');
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       req.session.user_name = userData.name;
-      console.log(req.session.user_id);
-      console.log(req.session.logged_in);
       res.json({ success: true });
     });
   } catch (err) {
@@ -59,7 +50,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session.destroy();
-
   return res.redirect('/');
 });
 
