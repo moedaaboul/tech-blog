@@ -14,6 +14,7 @@ Task was to build a CMS-style blog site similar to a Wordpress site, where devel
 - [Directory Structure](#directory-structure)
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
+- [Deployment](#deployment)
 - [Acknowledgements](#acknowledgements)
 - [Questions](#questions)
 - [License](#license)
@@ -96,6 +97,18 @@ The application will then be invoked by using the following command:
 - Insomnia is recommended to test routes
 - MySQL Workbench (MySQL GUI recommended but not required)
 - Text editor (VS Code recommended)
+
+## Deployment
+
+This app has been deployed via Heroku. If you choose to deploy your own ensure that the JAWSDB variable is set at the dyno. Upon ensuring that enviroment variables have been set up in the settings tab, you can go ahead and deploy the app to Heroku.
+
+Additionally, deployed code should not be linked to any locally stored environment variables on your local machine.
+
+If deployment fails, try debugging using the following command using the heroku CLI:
+
+    heroku logs --tail
+
+Then in the upper right corner of your heroku UI, click on more actions then select the option to restart all dynos. This will capture the logs as the app starts up it should allow you to get the entire stack trace
 
 ## Acknowledgements
 
