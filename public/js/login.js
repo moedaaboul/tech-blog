@@ -5,13 +5,13 @@ const loginForm = document.querySelector('#login-form');
 const handleLogin = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#email').value;
+  const name = document.querySelector('#name').value;
   const password = document.querySelector('#password').value;
-  console.log(email, password);
-  if (email && password) {
+  console.log(name, password);
+  if (name && password) {
     try {
       const data = await makeRequest('/api/users/login', 'POST', {
-        email,
+        name,
         password,
       });
       // json respon from login POST route
