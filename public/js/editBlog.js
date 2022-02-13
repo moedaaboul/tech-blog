@@ -8,15 +8,12 @@ const handleEditBlog = async (event) => {
   const blogID = document.querySelector('.title-label').id;
   const title = document.querySelector('#title').value;
   const content = document.querySelector('#content').value;
-  console.log(title, content, blogID);
   if (title && content) {
     try {
       const data = await makeRequest(`/api/blogs/${blogID}`, 'PUT', {
         blog_title: title,
         blog_body: content,
       });
-      // json respon from login POST route
-      console.log(data, 'data');
       if (data.success) {
         window.location.replace(`/blogs/${blogID}`);
       } else {

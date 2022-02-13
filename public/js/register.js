@@ -9,7 +9,6 @@ const handleRegister = async (event) => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   const confirmPassword = document.querySelector('#confirm-password').value;
-  console.log(name);
 
   if (
     email &&
@@ -24,7 +23,6 @@ const handleRegister = async (event) => {
         email,
         password,
       });
-      console.log(data, 'data');
       if (data.success) {
         window.location.replace('/');
         // registerForm.removeEventListener('submit', handleRegister);

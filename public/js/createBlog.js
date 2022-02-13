@@ -15,8 +15,6 @@ const handleCreateBlog = async (event) => {
         blog_body: content,
         blog_description: description,
       });
-      // json respon from login POST route
-      console.log(data, 'data');
       if (data.success) {
         window.location.replace('/dashboard');
       } else {

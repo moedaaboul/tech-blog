@@ -1,5 +1,3 @@
-import { makeRequest } from './helpers.js';
-
 const logoutNavItem = document.querySelector('#log-out');
 
 const handleLogout = async () => {

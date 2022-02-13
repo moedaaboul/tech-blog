@@ -7,15 +7,12 @@ const handleLogin = async (event) => {
 
   const name = document.querySelector('#name').value;
   const password = document.querySelector('#password').value;
-  console.log(name, password);
   if (name && password) {
     try {
       const data = await makeRequest('/api/users/login', 'POST', {
         name,
         password,
       });
-      // json respon from login POST route
-      console.log(data, 'data');
       if (data.success) {
         window.location.replace('/dashboard');
       } else {
