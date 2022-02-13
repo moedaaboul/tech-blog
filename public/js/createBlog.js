@@ -29,4 +29,4 @@ const handleCreateBlog = async (event) => {
     console.log('Failed to login');
   }
 };
-createBlogButton.addEventListener('click', handleCreateBlog);
+createBlogButton.addEventListener('submit', handleCreateBlog);

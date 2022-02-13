@@ -1,6 +1,6 @@
 {{> navbar}}
 <div class="container">
-<form>
+<form id="create-blog">
   <div class='field'>
     <div class='field'>
       <label class='label'>Title</label>
@@ -38,12 +38,13 @@
         class='textarea is-large'
         name='message'
         id='content'
+        required
       ></textarea>
     </div>
   </div>
   <div class='field'>
     <div class='buttons'>
-      <button id="create-blog", class='button is-medium is-success'>Create blog</button>
+      <button type="submit" class='button is-medium is-success'>Create blog</button>
       <button class='button is-medium is-light'>Cancel</button>
     </div>
   </div>
