@@ -17,7 +17,7 @@ const ONE_MINUTE = 1000 * 60;
 const ONE_HOUR = 1000 * 60 * 60;
 
 const sessionOptions = {
-  secret: process.env.SESSION_SECRET,
+  secret: 'secret should be declared here deployment',
   resave: false,
   saveUninitialized: false,
   cookies: {
