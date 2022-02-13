@@ -7,7 +7,14 @@ router.post('/register', async (req, res) => {
   try {
     const userData = await User.create(req.body);
     console.log(userData);
-    return res.json({ success: true });
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      req.session.user_name = userData.name;
+      console.log(req.session.user_id);
+      console.log(req.session.logged_in);
+      res.json({ success: true });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
