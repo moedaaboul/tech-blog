@@ -1,17 +1,6 @@
 const router = require('express').Router();
 const { Blog, Comment, User } = require('../../models');
 
-router.get('/edit/:id', async (req, res) => {
-  const dbBlogsData = await Blog.findByPk(req.params.id);
-  const blogsData = dbBlogsData.get({ plain: true });
-  console.log(blogsData);
-  console.log([blogsData][0]);
-  res.render('editPost', {
-    title: 'Tech Blog',
-    blogsData: blogsData,
-  });
-});
-
 router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({

@@ -45,6 +45,17 @@ router.use('/dashboard', async (req, res) => {
   }
 });
 
+router.use('/blogs/edit/:id', async (req, res) => {
+  const dbBlogsData = await Blog.findByPk(req.params.id);
+  const blogsData = dbBlogsData.get({ plain: true });
+  console.log(blogsData);
+  console.log([blogsData][0]);
+  res.render('editPost', {
+    title: 'Tech Blog',
+    blogsData: blogsData,
+  });
+});
+
 // get one blog
 router.use('/blogs/:id', async (req, res) => {
   try {
@@ -96,20 +107,6 @@ router.use('/blogs/:id', async (req, res) => {
     res.status(500).json({ msg: error });
   }
 });
-
-// router.use('/:id', async (req, res) => {
-//   if (req.session.logged_in) {
-//     try {
-//       const blogsData = await Blog.findAll({
-//         raw: true,
-//         //Other parameters
-//       });
-//       res.render('blogs', { title: 'Tech Blog', blogsData: blogsData });
-//     } catch (error) {
-//       res.status(500).json({ msg: error });
-//     }
-//   }
-// });
 
 router.use('/', async (req, res) => {
   try {
