@@ -1,6 +1,6 @@
 {{> navbar}}
 <div class="container">
-<form>
+<form id="edit-btn">
   <div class='field'>
     <div class='field'>
       <label class='label title-label' id="{{blogsData.id}}">Title</label>
@@ -23,12 +23,13 @@
         class='textarea is-large'
         name='message'
         id='content'
+        required
       >{{blogsData.blog_body}}</textarea>
     </div>
   </div>
   <div class='field'>
     <div class='buttons'>
-      <button class='edit-btn button is-medium is-success'>Save changes</button>
+      <button type="submit" class='edit-btn button is-medium is-success'>Save changes</button>
       <a class='button is-medium is-danger'>Cancel</a>
     </div>
   </div>

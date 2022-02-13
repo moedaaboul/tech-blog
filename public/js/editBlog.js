@@ -1,6 +1,6 @@
 import { makeRequest } from './helpers.js';
 
-const editBlogButton = document.querySelector('.edit-btn');
+const editBlogButton = document.querySelector('#edit-btn');
 
 const handleEditBlog = async (event) => {
   event.preventDefault();
@@ -29,4 +29,4 @@ const handleEditBlog = async (event) => {
     console.log('Failed to update content');
   }
 };
-editBlogButton.addEventListener('click', handleEditBlog);
+editBlogButton.addEventListener('submit', handleEditBlog);
