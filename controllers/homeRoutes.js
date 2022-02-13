@@ -16,6 +16,9 @@ router.use('/login', (req, res) => {
 });
 
 router.use('/post', (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect('/');
+  }
   res.render('createPost', { title: 'Tech Blog' });
 });
 
@@ -52,6 +55,9 @@ router.use('/dashboard', async (req, res) => {
 });
 
 router.use('/blogs/edit/:id', async (req, res) => {
+  if (!req.session.logged_in) {
+    return res.redirect('/login');
+  }
   const dbBlogsData = await Blog.findByPk(req.params.id);
   const blogsData = dbBlogsData.get({ plain: true });
   console.log(blogsData);
