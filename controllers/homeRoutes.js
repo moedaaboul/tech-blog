@@ -1,21 +1,21 @@
 const router = require('express').Router();
 const { User, Blog, Comment } = require('../models');
 
-router.use('/register', (req, res) => {
+router.get('/register', (req, res) => {
   if (req.session.logged_in) {
     return res.redirect('/');
   }
   res.render('register', { title: 'register' });
 });
 
-router.use('/login', (req, res) => {
+router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     return res.redirect('/');
   }
   res.render('login', { title: 'login' });
 });
 
-router.use('/post', (req, res) => {
+router.get('/post', (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect('/');
   }
@@ -23,7 +23,7 @@ router.use('/post', (req, res) => {
 });
 
 // get all blogs
-router.use('/dashboard', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect('/login');
   }
@@ -52,22 +52,26 @@ router.use('/dashboard', async (req, res) => {
   }
 });
 
-router.use('/blogs/edit/:id', async (req, res) => {
+router.get('/blogs/edit/:id', async (req, res) => {
   if (!req.session.logged_in) {
     return res.redirect('/login');
   }
-  const dbBlogsData = await Blog.findByPk(req.params.id);
-  const blogsData = dbBlogsData.get({ plain: true });
-  res.render('editPost', {
-    title: 'Tech Blog',
-    blogsData: blogsData,
-    signedIn: req.session.logged_in,
-    loggedOut: !req.session.logged_in,
-  });
+  try {
+    const dbBlogsData = await Blog.findByPk(req.params.id);
+    const blogsData = dbBlogsData.get({ plain: true });
+    res.render('editPost', {
+      title: 'Tech Blog',
+      blogsData: blogsData,
+      signedIn: req.session.logged_in,
+      loggedOut: !req.session.logged_in,
+    });
+  } catch (error) {
+    res.status(404).render('error');
+  }
 });
 
 // get one blog
-router.use('/blogs/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const dbBlogsData = await Blog.findByPk(req.params.id, {
       include: [
@@ -109,11 +113,11 @@ router.use('/blogs/:id', async (req, res) => {
       signedIn: req.session.logged_in,
     });
   } catch (error) {
-    res.status(500).json({ msg: error });
+    res.status(404).render('error');
   }
 });
 
-router.use('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const dbblogsData = await Blog.findAll({
       include: [
@@ -137,6 +141,10 @@ router.use('/', async (req, res) => {
   } catch (error) {
     res.status(500).json({ msg: error });
   }
+});
+
+router.get('/*', (req, res) => {
+  res.redirect('/');
 });
 
 module.exports = router;
