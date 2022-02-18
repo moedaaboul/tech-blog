@@ -7,9 +7,6 @@
   "name": "tech-blog",
   "description": "",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.13.0"
-  },
   "main": "server.js",
   "repository": {
     "type": "git",
