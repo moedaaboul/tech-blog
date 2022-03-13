@@ -114,6 +114,8 @@ Then in the upper right corner of your heroku UI, click on more actions then sel
 ## Appearance
 
 ![My dashboard view of Tech Blog](./assets/dashboard.png)
+![Single post view of Tech Blog](./assets/post.png)
+![Comments editing view of Tech Blog](./assets/comments.png)
 
 ## Acknowledgements
 
